@@ -1,0 +1,9 @@
+<% initialbracket = [] %>
+<% @players.each do |player|%>
+  <% initialbracket << player %>
+  <% initialbracket.shuffle! %>
+  <%end%>
+
+  <% initialbracket.each do |player| %>
+  <p><%= player.firstname%> <%=player.lastname%></p>
+  <%end%>

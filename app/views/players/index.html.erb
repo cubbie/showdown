@@ -1,0 +1,14 @@
+<h1> Join the battle!</h1>
+
+<%= form_for @player do |f| %>
+  <p><%=f.label :firstname%>:<%=f.text_field :firstname%></p>
+  <p><%=f.label :lastname%>:<%=f.text_field :lastname%></p>
+  <p><%=f.submit "Join!"%>
+<% end %>
+
+<%   @players.each do |player| %>
+  <p><%= player.firstname %> <%= player.lastname%></p>
+  <% end %>
+
+
+<a href="../brackets">Generate Brackets</a>
