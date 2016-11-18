@@ -9,16 +9,13 @@
   </head>
 
   <body>
-    <div class="side_nav">
+    <div class="side_nav" id="side_nav">
       <div class="logo">
         <%= image_tag "bitmaker_logo.svg" %>
       </div>
-      <div class="navbar_links">
-        <ul>
-          <li><%= link_to "New Showdown", root_url %></li>
-          <li><%= link_to "Past Showdowns", root_url %></li>
-          <li></li>
-        </ul>
+      <div class="navbar_links" id="navbar_links">
+          <%= link_to "New Showdown", root_url %>
+          <%= link_to "Past Showdowns", root_url %>
       </div>
     </div>
 
