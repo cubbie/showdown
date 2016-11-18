@@ -1,14 +1,22 @@
-<h1> Join the battle!</h1>
+<div class="new_showdown_page">
+  <div class="nsd_container">
+    <div class="title">
+      <h1> SHOWDOWN! </h1>
+    </div>
 
-<%= form_for @player do |f| %>
-  <p><%=f.label :firstname%>:<%=f.text_field :firstname%></p>
-  <p><%=f.label :lastname%>:<%=f.text_field :lastname%></p>
-  <p><%=f.submit "Join!"%>
-<% end %>
+  <div class="add_player_form">
+    <%= form_for @player do |f| %>
+      <p><%=f.label :firstname%>:<%=f.text_field :firstname%></p>
+      <p><%=f.label :lastname%>:<%=f.text_field :lastname%></p>
+      <p><%=f.submit "Join!"%>
+        <% end %>
+      </div>
 
-<%   @players.each do |player| %>
-  <p><%= player.firstname %> <%= player.lastname%></p>
-  <% end %>
-
-
-<a href="../brackets">Generate Brackets</a>
+  <div class="display_contestants">
+    <% @players.each do |player| %>
+      <p><%= player.firstname %> <%= player.lastname%></p>
+    <% end %>
+  </div>
+    <a href="../brackets">Generate Brackets</a>
+  </div>
+</div>
