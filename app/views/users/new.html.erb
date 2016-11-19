@@ -1,16 +1,19 @@
-<%= form_for @user do |f| %>
-<div>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</div>
-<div>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-</div>
-<div>
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %>
-</div>
-<%= f.submit "Create account" %>
+<div class="user-login-form">
+  <%= form_for @user do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%= f.submit "Create account" %>
 
-<% end %>
+  <% end %>
+
+</div>

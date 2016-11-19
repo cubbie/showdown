@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <h1> Hello <%= current_user.email %></h1>
+    <% end %>
     <div class="side_nav" id="side_nav">
       <div class="logo">
         <%= image_tag "bitmaker_logo.svg", class: "bitmaker_logo"%>
