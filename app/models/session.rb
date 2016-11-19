@@ -1,5 +1,0 @@
-class Session < ApplicationRecord
-
-
-  
-end
