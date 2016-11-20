@@ -56,7 +56,7 @@ li {
   width: 19.4444%;
   height: auto;
   bottom: 0;
-  display: none;
+  display: none; /* Right here */
 
 }
 
