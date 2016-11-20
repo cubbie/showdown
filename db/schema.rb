@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120211708) do
+ActiveRecord::Schema.define(version: 20161120222256) do
 
   create_table "brackets", force: :cascade do |t|
     t.string   "game_name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20161120211708) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "started"
-    t.integer  "admin"
+    t.string   "admin"
   end
 
   create_table "players", force: :cascade do |t|

@@ -6,6 +6,7 @@ class BracketsController < ApplicationController
 
   def create
     @bracket = Bracket.new(bracket_params)
+    @bracket.admin = current_user.email
     if @bracket.save
       redirect_to root_url
     else
