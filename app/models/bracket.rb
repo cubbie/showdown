@@ -1,0 +1,4 @@
+class Bracket < ApplicationRecord
+  
+
+end
