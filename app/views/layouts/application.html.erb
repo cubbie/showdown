@@ -9,9 +9,6 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <h1> Hello <%= current_user.email %></h1>
-    <% end %>
     <div class="side_nav" id="side_nav">
       <div class="logo">
         <%= image_tag "bitmaker_logo.svg", class: "bitmaker_logo"%>
@@ -22,7 +19,7 @@
       </div>
       <div class="login">
         <% if current_user %>
-        <%= link_to current_user.fullname, user_path(current_user.id) %> | <%= link_to "Log Out", "#{sessions_path}/#{current_user.id}", method: :delete %>
+        <%= link_to current_user.email, root_url %> | <%= link_to "Log Out", "#{sessions_path}/#{current_user.id}", method: :delete %>
         <% else %>
         <%= link_to "Log In", new_session_url %>  or <%= link_to "Sign up", new_user_url %>
         <% end %>
