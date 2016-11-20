@@ -1,0 +1,16 @@
+<div class="bracket-creation-form">
+  <%= form_for @bracket do |f| %>
+  <div>
+    <%= f.label :game_name %>
+    <%= f.text_field :game_name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.password_field :description %>
+  </div>
+
+  <%= f.submit "Create tournament" %>
+
+  <% end %>
+
+</div>
