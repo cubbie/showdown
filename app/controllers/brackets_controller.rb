@@ -1,5 +1,9 @@
 class BracketsController < ApplicationController
 
+  def index
+    @brackets = Bracket.all
+  end
+
   def new
     @bracket = Bracket.new
   end
@@ -13,7 +17,6 @@ class BracketsController < ApplicationController
       render :back
     end
   end
-
 
   def show
     @bracket = Bracket.find_by(show_bracket_params)
