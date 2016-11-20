@@ -14,8 +14,18 @@ class BracketsController < ApplicationController
   end
 
 
+  def show
+    @bracket = Bracket.find_by(show_bracket_params)
+  end
+
+
+
 private
   def bracket_params
     params.require(:bracket).permit(:game_name, :description)
+  end
+
+  def show_bracket_params
+    params.permit(:id)
   end
 end
