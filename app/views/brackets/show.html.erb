@@ -2,4 +2,17 @@
   <%= @bracket.game_name %> <br />
   <%= @bracket.description %>
   <%= @bracket.admin %>
+<br />
+<% if current_user %>
+  <% if @bracket.users.include? current_user %>
+  <% @status = "leave" %>
+  <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "remove"}  %>
+  <% else %>
+  <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "join"}  %>
+  <% end %>
+<% end %>
+<br />
+  <% @bracket.users.each do |buser| %>
+  <%= buser.email %> <br />
+  <% end %>
 </div>

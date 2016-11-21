@@ -1,0 +1,18 @@
+<%= form_for "information", url: process_url do |f|%>
+<% puts(local_assigns[:current_user].id) %>
+<div>
+  <%= f.hidden_field :user_id, value: local_assigns[:current_user].id %>
+</div>
+<div>
+  <%= f.hidden_field :bracket_id, value: local_assigns[:bracket].id %>
+</div>
+<div>
+  <%= f.hidden_field :status, value: local_assigns[:status] %>
+</div>
+
+  <% if status == "remove" %>
+  <%= f.submit "Leave Bracket" %>
+  <% elsif status == "join" %>
+  <%= f.submit "Join Bracket" %>
+  <% end %>
+<% end %>
