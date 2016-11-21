@@ -1,7 +1,7 @@
 <div class="login_form">
 <h1>Log in</h1>
 
-<%= form_tag sessions_path do %>
+<%= form_tag sessions_url do %>
   <div class="field">
     <%= label_tag :email %><br/>
     <%= text_field_tag :email, params[:email] %>
