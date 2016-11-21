@@ -11,8 +11,9 @@
   <body>
     <div class="side_nav" id="side_nav">
       <div class="logo">
-        <a href="/">
-      </div>
+        <%= link_to( image_tag("showdownlogo.png"), root_url, class: "logo_size") %>
+        </div>
+
       <div class="navbar_links" id="navbar_links">
 
           <a href="/brackets/new">
@@ -20,7 +21,7 @@
 
           <a href="/brackets">
             <span>Past Matches</span>
-        
+
       </div>
       <div class="login">
         <% if current_user %>
