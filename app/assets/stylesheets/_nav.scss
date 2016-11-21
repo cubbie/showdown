@@ -1,0 +1,39 @@
+#navbar_links a {
+  color: #999FA1;
+  display: inline-block;
+  text-decoration: none;
+  list-style: none;
+}
+
+#navbar_links a:hover {
+  color:rgb(0,110,230);
+}
+
+.side_nav {
+  position: fixed;
+  display: inline-block;
+  background-color: rgb(242,242,242);
+  top: 0;
+  margin:0;
+  width: 19.4444%;
+  height: auto;
+  bottom: 0;
+  display: block; /* Right here */
+}
+
+.bitmaker_logo {
+  display: inline-block;
+  margin-left: 20%;
+  background-color: rgb(0,122,255);
+  width: 132px;
+  height: 180px;
+}
+
+.login {
+  margin-left: 4em;
+  bottom: 0;
+}
+
+.login_form {
+  margin-left: 30em;
+}
