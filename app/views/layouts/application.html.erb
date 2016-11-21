@@ -14,14 +14,17 @@
         <%= link_to( image_tag("showdownlogo.png"), root_url, class: "logo_size") %>
         </div>
 
-      <div class="navbar_links" id="navbar_links">
+      <div class="navbar_icon" id="navbar_icon">
+          <%= link_to( image_tag("new.png"), new_bracket_url) %>
+          <%= link_to( image_tag("past.svg"), brackets_url) %>
+      </div>
+      <div class="navbar_text" id="navbar_text">
 
           <a href="/brackets/new">
             <span>New</span>
 
           <a href="/brackets">
             <span>Past Matches</span>
-
       </div>
       <div class="login">
         <% if current_user %>
@@ -31,8 +34,8 @@
         <% end %>
       </div>
     </div>
-
-
-    <%= yield %>
+    <div class="page-container">
+      <%= yield %>
+    </div>
   </body>
 </html>
