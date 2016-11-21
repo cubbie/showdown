@@ -32,7 +32,7 @@ class BracketsController < ApplicationController
     elsif process_request_params[:status] == "join"
       join_bracket(bracket, user)
     end
-    redirect_to root_url
+    redirect_to :back
   end
 
 
