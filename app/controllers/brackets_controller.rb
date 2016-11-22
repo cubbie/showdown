@@ -63,10 +63,14 @@ private
       users.delete(first_user)
       second_user = users[rand(0...users.length)]
       users.delete(second_user)
-      Game.create(first_team_id: first_user.id, second_team_id: second_user.id, bracket_id: bracket.id)
+      Game.create(first_team_id: first_user.id, second_team_id: second_user.id, bracket_id: bracket.id, round: 1)
     end
-    get_game_count(bracket.users.length).times do
-      Game.create(bracket_id: bracket.id)
+    array_of_round_lengths = get_game_count(bracket.users.length)
+    array_of_round_lengths.each_with_index do |game_count, index|
+      puts(array_of_round_lengths)
+      game_count.times do
+        Game.create(round: index + 2, bracket_id: bracket.id)
+      end
     end
   end
 
@@ -93,14 +97,14 @@ private
   end
 
   def get_game_count(team_count)
-    total_games = 0
+    total_games = []
     divisor = 4
     while team_count / divisor != 1
-      if team_count / (divisor * 2) == 1
-        total_games += 1
-      end
       puts(team_count / divisor)
-      total_games += team_count / divisor
+      total_games << team_count / divisor
+      if team_count / (divisor * 2) == 1
+        total_games << 1
+      end
       divisor = divisor * 2
     end
     return total_games

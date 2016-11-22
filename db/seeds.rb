@@ -23,7 +23,15 @@ array_of_users = [
   User.create(email: "5@5.com", password: "123"),
   User.create(email: "6@6.com", password: "123"),
   User.create(email: "7@7.com", password: "123"),
-  User.create(email: "8@8.com", password: "123")
+  User.create(email: "8@8.com", password: "123"),
+  User.create(email: "11@1.com", password: "123"),
+  User.create(email: "21@2.com", password: "123"),
+  User.create(email: "31@3.com", password: "123"),
+  User.create(email: "41@4.com", password: "123"),
+  User.create(email: "51@5.com", password: "123"),
+  User.create(email: "61@6.com", password: "123"),
+  User.create(email: "71@7.com", password: "123"),
+  User.create(email: "81@8.com", password: "123")
 ]
 array_of_users.each do |user|
   Bracket.find_by(id: 1).users << user
