@@ -11,6 +11,7 @@ class BracketsController < ApplicationController
   def create
     @bracket = Bracket.new(bracket_params)
     @bracket.admin = current_user.email
+    @bracket.started = false
     if @bracket.save
       redirect_to root_url
     else
@@ -23,8 +24,6 @@ class BracketsController < ApplicationController
   end
 
   def process_status
-
-
     bracket = Bracket.find_by(id: process_request_params[:bracket_id])
     user = User.find_by(id: process_request_params[:user_id])
     if process_request_params[:status] == "remove"
@@ -35,6 +34,12 @@ class BracketsController < ApplicationController
     redirect_to :back
   end
 
+  def start
+    @bracket = Bracket.find_by(show_bracket_params)
+    @bracket.started = true
+    @bracket.save
+    redirect_to :back
+  end
 
 
 
