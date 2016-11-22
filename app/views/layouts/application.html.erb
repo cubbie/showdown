@@ -6,25 +6,30 @@
     <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
 
   <body>
-    <div class="side_nav" id="side_nav">
+    <div class="nav" id="nav">
       <div class="logo">
         <%= link_to( image_tag("showdownlogo.png"), root_url, class: "logo_size") %>
         </div>
 
-      <div class="navbar_icon" id="navbar_icon">
+      <!-- <div class="navbar_icon" id="navbar_icon">
           <%= link_to( image_tag("new.png"), new_bracket_url) %>
           <%= link_to( image_tag("past.svg"), brackets_url) %>
-      </div>
+      </div> -->
       <div class="navbar_text" id="navbar_text">
 
           <a href="/brackets/new">
             <span>New</span>
 
           <a href="/brackets">
-            <span>Past Matches</span>
+            <span>History</span>
+
+            <a href="/brackets">
+              <span>Live</span>
       </div>
       <div class="login">
         <% if current_user %>
