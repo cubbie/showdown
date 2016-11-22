@@ -23,7 +23,29 @@
   <% end %>
 <% else %>
   <div class ="show-bracket">
-    <% if @games.length > 0 %>
+    <% array_of_rounds = [] %>
+    <% sorted_games = @games.sort {|a,b| a.round <=> b.round} %>
+    <% (sorted_games[sorted_games.length - 1].round + 1).times do |i|%>
+      <% array_of_rounds << Game.where(bracket_id: @bracket.id, round: i).to_a %>
+    <% end %>
+    <% array_of_rounds.shift %>
+    <% array_of_rounds.each do |games_of_round| %>
+    <div class="round">
+      <% games_of_round.each do |game| %>
+        <div class="game">
+          <% if game.round == 1 %>
+            <p class="team-name"> <%= User.find_by(id: game.first_team_id).email%> </p>
+            <p class="team-name"> <%= User.find_by(id: game.second_team_id).email %> </p>
+            <% else %>
+            <p> <%= "upcoming"%> </p>
+            <p> <%= "upcoming"%> </p>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <!-- <% if @games.length > 0 %>
     <%= "Total games: #{@games.length}" %>
     <br /><br />
       <% @games.each do |game| %>
@@ -38,6 +60,6 @@
       </div>
       <br /><br /><br />
       <% end %>
-    <% end %>
+    <% end %> -->
   </div>
 <% end %>
