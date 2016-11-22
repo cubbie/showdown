@@ -22,7 +22,24 @@
   <%= button_to("Start Bracket", start_bracket_url) %>
   <% end %>
 <% else %>
+
   <div class ="show-bracket">
-    <%= "Hello" %>
+    <% if @games.length > 0 %>
+    <%= "Total games: #{@games.length}" %>
+    <br /><br />
+      <% @games.each do |game| %>
+      <div class="game">
+        <% if game.first_team_id != nil && game.second_team_id != nil %>
+          <p> <%= User.find_by(id: game.first_team_id).email%> </p>
+          <p> <%= User.find_by(id: game.second_team_id).email %> </p>
+          <br />
+        <% else %>
+        <p> <%= "upcoming"%> </p>
+        <p> <%= "upcoming"%> </p>
+        <br />
+        <% end %>
+      </div>
+      <% end %>
+    <% end %>
   </div>
 <% end %>

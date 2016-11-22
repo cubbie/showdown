@@ -21,6 +21,9 @@ class BracketsController < ApplicationController
 
   def show
     @bracket = Bracket.find_by(show_bracket_params) #Fetches a specific bracket for rendering
+    if @bracket.started
+      @games = Game.where(bracket_id: @bracket.id)
+    end
   end
 
   def process_status # Processes user status' in the tournament
