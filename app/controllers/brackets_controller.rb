@@ -37,8 +37,8 @@ class BracketsController < ApplicationController
   def start # Starts the tournament, should only be called by the bracket admin.
     @bracket = Bracket.find_by(show_bracket_params)
     @bracket.started = true
-    @bracket.save
     create_games(@bracket)
+    @bracket.save
 
     redirect_to :back
   end
@@ -49,10 +49,11 @@ class BracketsController < ApplicationController
 private
 
   def create_games(bracket)
-    if users % 2 != 0
-      bracket.users << User.new(email: "bye@bye.com")
+    if bracket.users.length % 2 != 0
+      bracket.users << User.new(email: "bye@bye.com", password: "bye")
     end
-    users = bracket.users
+
+    users = bracket.users.to_a
 
     while users.length != 0
       first_user = users[rand(0...users.length)]
@@ -61,8 +62,8 @@ private
       users.delete(second_user)
       Game.create(first_team_id: first_user.id, second_team_id: second_user.id, bracket_id: bracket.id)
     end
-    get_game_count(users).times do
-      Game.create()
+    get_game_count(bracket.users.length).times do
+      Game.create(bracket_id: bracket.id)
     end
   end
 
@@ -93,8 +94,9 @@ private
     divisor = 4
     while team_count / divisor != 1
       if team_count / (divisor * 2) == 1
-        total_games += 2
+        total_games += 1
       end
+      puts(team_count / divisor)
       total_games += team_count / divisor
       divisor = divisor * 2
     end
