@@ -1,6 +1,6 @@
 class BracketsController < ApplicationController
 
-  def index
+  def index # This passes all of the brackets to the index page to be rendered
     @brackets = Bracket.all
   end
 
@@ -8,11 +8,11 @@ class BracketsController < ApplicationController
     @bracket = Bracket.new
   end
 
-  def create
+  def create #This creates the bracket and sets the admin equal to the current users email
     @bracket = Bracket.new(bracket_params)
     @bracket.admin = current_user.email
     @bracket.started = false
-    if @bracket.save
+    if @bracket.save #If the bracket can be saved (passes validations) save and redirect
       redirect_to root_url
     else
       render :back
@@ -20,10 +20,10 @@ class BracketsController < ApplicationController
   end
 
   def show
-    @bracket = Bracket.find_by(show_bracket_params)
+    @bracket = Bracket.find_by(show_bracket_params) #Fetches a specific bracket for rendering
   end
 
-  def process_status
+  def process_status # Processes user status' in the tournament
     bracket = Bracket.find_by(id: process_request_params[:bracket_id])
     user = User.find_by(id: process_request_params[:user_id])
     if process_request_params[:status] == "remove"
@@ -34,10 +34,12 @@ class BracketsController < ApplicationController
     redirect_to :back
   end
 
-  def start
+  def start # Starts the tournament, should only be called by the bracket admin.
     @bracket = Bracket.find_by(show_bracket_params)
     @bracket.started = true
+    create_games(@bracket)
     @bracket.save
+
     redirect_to :back
   end
 
@@ -45,6 +47,26 @@ class BracketsController < ApplicationController
 
 
 private
+
+  def create_games(bracket)
+    if bracket.users.length % 2 != 0
+      bracket.users << User.new(email: "bye@bye.com", password: "bye")
+    end
+
+    users = bracket.users.to_a
+
+    while users.length != 0
+      first_user = users[rand(0...users.length)]
+      users.delete(first_user)
+      second_user = users[rand(0...users.length)]
+      users.delete(second_user)
+      Game.create(first_team_id: first_user.id, second_team_id: second_user.id, bracket_id: bracket.id)
+    end
+    get_game_count(bracket.users.length).times do
+      Game.create(bracket_id: bracket.id)
+    end
+  end
+
   def bracket_params
     params.require(:bracket).permit(:game_name, :description)
   end
@@ -66,5 +88,20 @@ private
     bracket.users << user
     bracket.save
   end
+
+  def get_game_count(team_count)
+    total_games = 0
+    divisor = 4
+    while team_count / divisor != 1
+      if team_count / (divisor * 2) == 1
+        total_games += 1
+      end
+      puts(team_count / divisor)
+      total_games += team_count / divisor
+      divisor = divisor * 2
+    end
+    return total_games
+  end
+
   helper_method :add_user_to_bracket, :remove_user_from_bracket
 end
