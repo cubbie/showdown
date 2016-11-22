@@ -29,9 +29,13 @@
   }
 
   .login {
+    background-color: white;
     position: fixed;
+    display: inline-block;
     width: 100%;
-    bottom: 20px;
+    line-height: 2;
+    height: 40px;
+    bottom: 0;
     text-align: center;
   }
 
