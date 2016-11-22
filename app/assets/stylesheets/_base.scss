@@ -26,3 +26,9 @@ body {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+@media (min-width: 800px) {
+  .page-container {
+    margin-left: 22%;
+  }
+}
