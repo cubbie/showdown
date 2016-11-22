@@ -1,27 +1,4 @@
-<% if !@bracket.started %>
-  <div class ="show-bracket">
-    <%= @bracket.game_name %> <br />
-    <%= @bracket.description %>
-    <%= @bracket.admin %>
-    <br />
-    <% if current_user && !@bracket.started %>
-    <% if @bracket.users.include? current_user %>
-    <% @status = "leave" %>
-    <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "remove"}  %>
-    <% else %>
-    <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "join"}  %>
-    <% end %>
-    <% end %>
-    <br />
-    <% @bracket.users.each do |buser| %>
-    <%= buser.email %> <br />
-    <% end %>
-  </div>
-
-  <% if current_user.email == @bracket.admin %>
-  <%= button_to("Start Bracket", start_bracket_url) %>
-  <% end %>
-<% else %>
+<% if @bracket.started %>
   <div class ="show-bracket">
     <% array_of_rounds = [] %>
     <% sorted_games = @games.sort {|a,b| a.round <=> b.round} %>
@@ -45,4 +22,27 @@
     </div>
     <% end %>
   </div>
+<% else %>
+  <div class ="show-bracket">
+    <%= @bracket.game_name %> <br />
+    <%= @bracket.description %>
+    <%= @bracket.admin %>
+    <br />
+    <% if current_user && !@bracket.started %>
+      <% if @bracket.users.include? current_user %>
+      <% @status = "leave" %>
+      <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "remove"}  %>
+      <% else %>
+      <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "join"}  %>
+      <% end %>
+    <% end %>
+    <br />
+    <% @bracket.users.each do |buser| %>
+    <%= buser.email %> <br />
+    <% end %>
+  </div>
+
+  <% if current_user.email == @bracket.admin %>
+  <%= button_to("Start Bracket", start_bracket_url) %>
+  <% end %>
 <% end %>
