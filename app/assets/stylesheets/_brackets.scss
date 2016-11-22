@@ -9,23 +9,14 @@
 }
 
 .round {
-  // overflow: scroll;
-  // float: left;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-around;
-  // /* align-content: space-between; */
-  // width: 250px;
-  // height: 100%;
-  // align-self: center;
-  overflow: scroll;
+
   float: left;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   /* align-items: center; */
   align-content: space-between;
-  width: 250px;
+  width: 150px;
   height: 100%;
   align-self: center;
 }
