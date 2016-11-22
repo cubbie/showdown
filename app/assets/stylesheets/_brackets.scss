@@ -7,3 +7,14 @@
   width: 100px;
   height: auto;
 }
+
+.round {
+  overflow: scroll;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+  width: 250px;
+  height: auto;
+}
