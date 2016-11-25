@@ -69,11 +69,10 @@
     position: fixed;
     display: inline-block;
     background-color: rgb(242,242,242);
-    top: 0;
     margin:0;
-    width: 20%;
-    bottom: 0;
-    display: block; /* Right here */
+    height: 100vh;
+    width: 20vw;
+    display: absolute; /* Right here */
   }
 
   .logo_size {

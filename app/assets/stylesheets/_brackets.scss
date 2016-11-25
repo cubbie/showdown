@@ -6,24 +6,20 @@
   background-color: lightgray;
   width: 100px;
   height: auto;
+  text-align: center;
+  padding: 3px;
 }
 
 .round {
-
   float: left;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* align-items: center; */
   align-content: space-between;
-  width: 150px;
-  height: 100%;
-  align-self: center;
+  width: auto;
+  height: 100vh;
 }
 .show-bracket {
-  height: 100%;
-}
-
-.page-container {
-  height: 100%;
+  display: flex;
+  justify-content:space-around;
 }

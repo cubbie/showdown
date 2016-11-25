@@ -51,19 +51,19 @@ array_of_users = [
   User.create(email: "31@1.com", password: "123"),
   User.create(email: "32@2.com", password: "123"),
   User.create(email: "33@3.com", password: "123"),
-  User.create(email: "34@4.com", password: "123"),
-  User.create(email: "35@5.com", password: "123"),
-  User.create(email: "36@6.com", password: "123"),
-  User.create(email: "37@7.com", password: "123"),
-  User.create(email: "38@8.com", password: "123"),
-  User.create(email: "311@1.com", password: "123"),
-  User.create(email: "321@2.com", password: "123"),
-  User.create(email: "331@3.com", password: "123"),
-  User.create(email: "341@4.com", password: "123"),
-  User.create(email: "351@5.com", password: "123"),
-  User.create(email: "361@6.com", password: "123"),
-  User.create(email: "371@7.com", password: "123"),
-  User.create(email: "381@8.com", password: "123")
+  # User.create(email: "34@4.com", password: "123"),
+  # User.create(email: "35@5.com", password: "123"),
+  # User.create(email: "36@6.com", password: "123"),
+  # User.create(email: "37@7.com", password: "123"),
+  # User.create(email: "38@8.com", password: "123"),
+  # User.create(email: "311@1.com", password: "123"),
+  # User.create(email: "321@2.com", password: "123"),
+  # User.create(email: "331@3.com", password: "123"),
+  # User.create(email: "341@4.com", password: "123"),
+  # User.create(email: "351@5.com", password: "123"),
+  # User.create(email: "361@6.com", password: "123"),
+  # User.create(email: "371@7.com", password: "123"),
+  # User.create(email: "381@8.com", password: "123")
 ]
 array_of_users.each do |user|
   Bracket.find_by(id: 1).users << user

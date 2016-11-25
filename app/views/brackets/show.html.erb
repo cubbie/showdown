@@ -12,6 +12,7 @@
         <div class="game">
           <% if game.round == 1 %>
             <p class="team-name"> <%= User.find_by(id: game.first_team_id).email%> </p>
+            <hr>
             <p class="team-name"> <%= User.find_by(id: game.second_team_id).email %> </p>
             <% else %>
             <p> <%= "upcoming"%> </p>
