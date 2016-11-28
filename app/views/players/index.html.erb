@@ -1,18 +1,3 @@
   <div class="title">
       <h1 id="title"> SHOWDOWN! </h1>
     </div>
-
-  <div class="add_player_form">
-    <%= form_for @player do |f| %>
-      <p><%=f.label :firstname%>:<%=f.text_field :firstname%></p>
-      <p><%=f.label :lastname%>:<%=f.text_field :lastname%></p>
-      <p><%=f.submit "Join!"%>
-        <% end %>
-      </div>
-
-  <div class="display_contestants">
-    <% @players.each do |player| %>
-      <p><%= player.firstname %> <%= player.lastname%></p>
-    <% end %>
-  </div>
-    <a href="../brackets">Generate Brackets</a>
