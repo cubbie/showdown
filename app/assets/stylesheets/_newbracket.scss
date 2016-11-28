@@ -1,12 +1,28 @@
-
-.newbracket {
+.new-bracket-page {
   display: flex;
   justify-content: center;
+  align-content: center;
+  margin: auto auto;
+}
 
+.newbracket {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .bracket-creation-form {
   display: inline-block;
   text-align: center;
+}
 
+.new-bracket-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+@media (min-width: 800px) {
+  .new-bracket-title {
+    margin-top: 200px;
+  }
 }

@@ -20,13 +20,6 @@ body {
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     line-height: 1;
 }
-
-button {
-  background-color: rgb(242,242,242);
-  color: rgb(54,54,54);
-  border-radius: 5px;
-}
-
 .page-container {
   overflow: auto;
   margin-top: 95px;
@@ -34,7 +27,6 @@ button {
   margin-left: 20px;
   margin-right: 20px;
 }
-
 @media (min-width: 800px) {
   .page-container {
     overflow: auto;

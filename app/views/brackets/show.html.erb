@@ -44,6 +44,6 @@
   </div>
 
   <% if current_user.email == @bracket.admin %>
-  <%= button_to("Start Bracket", start_bracket_url) %>
+  <%= button_to("Start Bracket", start_bracket_url, class: 'pure-button') %>
   <% end %>
 <% end %>

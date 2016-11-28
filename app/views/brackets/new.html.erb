@@ -1,18 +1,25 @@
-<div class="newbracket">
-  <div class="bracket-creation-form">
-    <%= form_for @bracket do |f| %>
-    <div>
-      <%= f.label :game_name %>
-      <%= f.text_field :game_name %>
-    </div>
-    <div>
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
-
-    <%= f.submit "Create tournament" %>
-
+<div class"new-bracket-page">
+  <div class="new-bracket-title">
+    <p>Create a new tournament</p>
+  </div>
+<br />
+<hr>
+<br />
+  <div class="newbracket">
+    <div class="bracket-creation-form">
+      <%= form_for @bracket do |f| %>
+      <div>
+        <%= f.label :game_name %>
+        <%= f.text_field :game_name %>
+      </div>
+      <br />
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+      <br />
+      <%= f.submit "Create tournament", class: 'pure-button' %>
     <% end %>
-
+    </div>
   </div>
 </div>

@@ -11,8 +11,8 @@
 </div>
 
   <% if status == "remove" %>
-  <%= f.submit "Leave Bracket" %>
+  <%= f.submit "Leave Bracket", class: 'pure-button' %>
   <% elsif status == "join" %>
-  <%= f.submit "Join Bracket" %>
+  <%= f.submit "Join Bracket", class: 'pure-button' %>
   <% end %>
 <% end %>
