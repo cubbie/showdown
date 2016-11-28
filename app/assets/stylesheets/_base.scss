@@ -19,7 +19,12 @@ body {
     margin: 0;
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     line-height: 1;
+}
 
+button {
+  background-color: rgb(242,242,242);
+  color: rgb(54,54,54);
+  border-radius: 5px;
 }
 
 .page-container {
