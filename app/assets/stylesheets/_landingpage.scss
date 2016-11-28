@@ -1,0 +1,18 @@
+
+.title {
+  text-align: center;
+}
+
+.landingpage {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.landingbox {
+  width: 250px;
+  height: 300px;
+  border: solid grey 1px;
+  text-align: center;
+  display: inline-block;
+}
