@@ -1,49 +1,53 @@
-<% if @bracket.started %>
-  <div class ="show-bracket">
-    <% array_of_rounds = [] %>
-    <% sorted_games = @games.sort {|a,b| a.round <=> b.round} %>
-    <% (sorted_games[sorted_games.length - 1].round + 1).times do |i|%>
-      <% array_of_rounds << Game.where(bracket_id: @bracket.id, round: i).to_a %>
-    <% end %>
-    <% array_of_rounds.shift %>
-    <% array_of_rounds.each do |games_of_round| %>
-    <div class="round">
-      <% games_of_round.each do |game| %>
-        <div class="game">
-          <% if game.round == 1 %>
-            <p class="team-name"> <%= User.find_by(id: game.first_team_id).email%> </p>
-            <hr>
-            <p class="team-name"> <%= User.find_by(id: game.second_team_id).email %> </p>
-            <% else %>
-            <p> <%= "upcoming"%> </p>
-            <p> <%= "upcoming"%> </p>
-            <% end %>
-          </div>
+<div class="bracket-container">
+  <% if @bracket.started %>
+    <div class ="show-bracket">
+      <% array_of_rounds = [] %>
+      <% sorted_games = @games.sort {|a,b| a.round <=> b.round} %>
+      <% (sorted_games[sorted_games.length - 1].round + 1).times do |i|%>
+        <% array_of_rounds << Game.where(bracket_id: @bracket.id, round: i).to_a %>
+      <% end %>
+      <% array_of_rounds.shift %>
+      <% array_of_rounds.each do |games_of_round| %>
+      <div class="round">
+        <% games_of_round.each do |game| %>
+          <div class="game">
+            <% if game.round == 1 %>
+              <p class="team-name"> <%= User.find_by(id: game.first_team_id).email%> </p>
+              <hr>
+              <p class="team-name"> <%= User.find_by(id: game.second_team_id).email %> </p>
+              <% else %>
+              <p> <%= "upcoming"%> </p>
+              <p> <%= "upcoming"%> </p>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
       <% end %>
     </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class ="show-bracket">
-    <%= @bracket.game_name %> <br />
-    <%= @bracket.description %>
-    <%= @bracket.admin %>
-    <br />
-    <% if current_user && !@bracket.started %>
-      <% if @bracket.users.include? current_user %>
-      <% @status = "leave" %>
-      <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "remove"}  %>
-      <% else %>
-      <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "join"}  %>
+  <% else %>
+    <div class ="show-bracket">
+      <h2><%= @bracket.game_name %> </h2><br />
+      <%= @bracket.description %>
+      <%= @bracket.admin %>
+      <br />
+      <% if current_user && !@bracket.started %>
+        <% if @bracket.users.include? current_user %>
+        <% @status = "leave" %>
+        <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "remove"}  %>
+        <% else %>
+        <%= render partial: "form", locals: {current_user: current_user, bracket: @bracket, status: "join"}  %>
+        <% end %>
       <% end %>
-    <% end %>
-    <br />
-    <% @bracket.users.each do |buser| %>
-    <%= buser.email %> <br />
-    <% end %>
+      <br />
+      <% @bracket.users.each do |buser| %>
+      <%= buser.email %> <br />
+      <% end %>
+      <br />
+    <div class="start-button">
+      <% if current_user.email == @bracket.admin %>
+      <%= button_to("Start Bracket", start_bracket_url, class: 'pure-button') %>
+      <% end %>
+    </div>
   </div>
-
-  <% if current_user.email == @bracket.admin %>
-  <%= button_to("Start Bracket", start_bracket_url, class: 'pure-button') %>
   <% end %>
-<% end %>
+</div>

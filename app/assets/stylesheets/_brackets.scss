@@ -20,11 +20,14 @@
   width: auto;
 }
 .show-bracket {
-  display: flex;
-  justify-content:space-around;
+  display: block;
+  text-align: center;
 }
 
 .all-brackets {
   text-align: center;
   line-height: 2;
+}
+.bracket-container {
+  margin-top: 20px;
 }

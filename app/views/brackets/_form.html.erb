@@ -9,7 +9,7 @@
 <div>
   <%= f.hidden_field :status, value: local_assigns[:status] %>
 </div>
-
+<br />
   <% if status == "remove" %>
   <%= f.submit "Leave Bracket", class: 'pure-button' %>
   <% elsif status == "join" %>
