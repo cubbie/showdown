@@ -1,0 +1,185 @@
+/* line 1, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* line 7, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+/* line 12, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+img {
+  width: 100%;
+}
+
+/* line 16, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+body {
+  background: #fff;
+  color: #222;
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  height: 100vh;
+}
+
+/* line 27, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+.page-container {
+  overflow: auto;
+  margin-top: 95px;
+  margin-bottom: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (min-width: 800px) {
+  /* line 36, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_base.scss */
+  .page-container {
+    overflow: auto;
+    /* height: 100vh; */
+    margin: 0;
+    margin-left: 21vw;
+  }
+}
+@media (min-width: 0px) and (max-width: 799px) {
+  /* line 2, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .nav {
+    position: fixed;
+    top: 0;
+    height: 75px;
+    width: 100%;
+    background-color: #f2f2f2;
+  }
+
+  /* line 10, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .logo {
+    display: none;
+  }
+
+  /* line 14, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  #navbar_text a {
+    color: #9768d1;
+    display: inline-block;
+    text-align: center;
+    padding-top: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 33.3333%;
+    height: 75px;
+    margin: 0;
+  }
+
+  /* line 26, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  #navbar_text a:hover {
+    color: white;
+    background-color: black;
+  }
+
+  /* line 31, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .login {
+    background-color: white;
+    position: fixed;
+    display: inline-block;
+    width: 100%;
+    line-height: 2;
+    height: 40px;
+    bottom: 0;
+    text-align: center;
+  }
+}
+@media (min-width: 800px) {
+  /* line 46, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .navbar_icon {
+    display: none;
+  }
+
+  /* line 49, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .navbar_text {
+    display: block;
+  }
+
+  /* line 53, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  #navbar_text a {
+    color: #999FA1;
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  /* line 63, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  #navbar_text a:hover {
+    color: #9768d1;
+  }
+
+  /* line 67, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .nav {
+    list-style: none;
+    position: fixed;
+    display: inline-block;
+    background-color: #f2f2f2;
+    margin: 0;
+    height: 100vh;
+    width: 20vw;
+    display: absolute;
+    /* Right here */
+  }
+
+  /* line 78, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .logo_size {
+    width: 40%;
+  }
+
+  /* line 82, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .logo {
+    display: flex;
+    justify-content: center;
+    padding: 2em 0;
+    width: 100%;
+    height: 20%;
+    position: relative;
+    background-color: #9768d1;
+    margin-right: 20%;
+    margin-bottom: 2em;
+  }
+
+  /* line 94, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_nav.scss */
+  .login {
+    position: fixed;
+    padding-bottom: 2em;
+    bottom: 0;
+    margin-left: 1em;
+  }
+}
+/* line 5, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_brackets.scss */
+.game {
+  background-color: lightgray;
+  width: 100px;
+  height: auto;
+  text-align: center;
+  padding: 3px;
+  margin-top: 15px;
+}
+
+/* line 13, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_brackets.scss */
+.round {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-between;
+  width: auto;
+  /* height: 100vh; */
+}
+
+/* line 22, /Users/chrispereira/Desktop/bitmaker/projects/showdown/app/assets/stylesheets/_brackets.scss */
+.show-bracket {
+  display: flex;
+  justify-content: space-around;
+}
