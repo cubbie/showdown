@@ -50,9 +50,13 @@ class BracketsController < ApplicationController
 
 
 private
+  def next_power(number)
+    return (2 ** (Math.log(number)/ Math.log(2)).ceil) - 37
+  end
 
   def create_games(bracket)
-    if bracket.users.length % 2 != 0
+
+    ((2 ** (Math.log(bracket.users.length)/ Math.log(2)).ceil) - bracket.users.length).times do
       bracket.users << User.new(email: "bye@bye.com", password: "bye")
     end
 
