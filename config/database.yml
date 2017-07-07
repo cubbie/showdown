@@ -16,7 +16,7 @@ default: &default
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: showdown_project_development
   pool: 5
   username:
   password:
@@ -24,7 +24,7 @@ development:
 test: &TEST
   adapter: postgresql
   encoding: utf8
-  database: project_test
+  database: showdown_project_test
   pool: 5
   username:
   password:
@@ -32,7 +32,7 @@ test: &TEST
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_production
+  database: showdown_project_production
   pool: 5
   username:
   password:

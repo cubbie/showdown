@@ -20,8 +20,10 @@
   width: auto;
 }
 .show-bracket {
-  display: block;
-  text-align: center;
+    display: flex;
+    text-align: center;
+    overflow: auto;
+    position: relative;
 }
 
 .all-brackets {
